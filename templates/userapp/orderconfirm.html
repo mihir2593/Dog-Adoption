@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmation Page</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.confirm-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.confirmation-text {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.confirmation-message {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.confirm-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.confirm-button:hover {
+    background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <img src="{%static 'user/img/confirm_logo.png' %}" alt="Confirmation Logo" class="confirm-logo">
+    <div class="confirmation-text">Order Confirmed!</div>
+    <div class="confirmation-message">Thank you for your order. Your order has been successfully confirmed.</div>
+    <a href="{%url 'index' %}" class="confirm-button">Back to Home</a>
+     <a href="{%url 'orderlist' %}" class="confirm-button">Go to Order list</a>
+</div>
+</body>
+</html>

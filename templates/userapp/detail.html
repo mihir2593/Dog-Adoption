@@ -1,0 +1,36 @@
+{% extends 'userapp/master.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- Blog Start -->
+<div class="container py-5">
+    <div class="row g-5">
+        <div class="col-lg-8">
+            <!-- Blog Detail Start -->
+            <div class="mb-5">
+                <img class="img-fluid w-100 rounded mb-5" src="{{data.image.url}}" alt="">
+                <h5 class="text-uppercase mb-3">{{ data.type }}</h5>
+                <small class="me-3"><b> Name </b> : {{ data.name }}</small><br>
+                <small class="me-3"><b> Price </b>: {{ data.price }}</small><br>
+                <small class="me-3"><b> Color </b> : {{ data.color }}</small><br>
+                <small class="me-3"><b> Gender </b> : {{ data.gender }}</small><br><br>
+                <p>Ipsum sed lorem amet dolor amet duo ipsum amet et dolore est stet tempor eos dolor</p>
+
+
+                <form method="post" action="/user/confirmpet/{{data.id}}/">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                        Confirm to Buy
+                    </button>
+                </form>
+            </div>
+            <!-- Blog Detail End -->
+
+        </div>
+        <!-- Sidebar End -->
+    </div>
+</div>
+<!-- Blog End -->
+{% endblock %}

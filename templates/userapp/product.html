@@ -1,0 +1,61 @@
+{% extends 'userapp/master.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- Blog Start -->
+<div class="container py-5">
+    <div class="row g-5">
+        <!-- Blog list Start -->
+        <div class="col-lg-8">
+            {% for ab in data %}
+            <div class="blog-item mb-5">
+                <div class="row g-0 bg-light overflow-hidden">
+                    <div class="col-12 col-sm-5 h-100">
+                        <img class="img-fluid h-100" src="{{ ab.image.url }}" style="object-fit: cover;">
+                    </div>
+                    <div class="col-12 col-sm-7 h-100 d-flex flex-column justify-content-center">
+                        <div class="p-4">
+                            <div class="d-flex mb-3">
+
+                            </div>
+                            <h5 class="text-uppercase mb-3">{{ ab.type }}</h5>
+                            <small class="me-3"><b> Name </b> : {{ ab.name }}</small><br>
+                            <small class="me-3"><b> Price </b>: {{ ab.price }}</small><br>
+                            <small class="me-3"><b> Color </b> : {{ ab.color }}</small><br>
+                            <small class="me-3"><b> Gender </b> : {{ ab.gender }}</small><br><br>
+                            <p>Ipsum sed lorem amet dolor amet duo ipsum amet et dolore est stet tempor eos dolor</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                <a href="{% url 'detail' ab.id %}"> Buy </a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <nav aria-label="Page navigation example">
+                <ul class="pagination mx-3">
+                    {% if data.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ data.previous_page_number }}">Previous</a>
+                    </li>
+                    {% endif %}
+                    <li class="page-item"><a class="page-link" href="#">{{ data.number }} of {{ data.paginator.num_pages
+                        }}</a></li>
+                    {% if data.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ data.next_page_number }}">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ data.paginator.num_pages }}">Last</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+        </div>
+        <!-- Blog list End -->
+
+
+    </div>
+</div>
+<!-- Blog End -->
+
+{% endblock %}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Template</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+        text-align: center;
+    }
+    .order-details {
+        margin-bottom: 20px;
+    }
+    .order-details table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .order-details th, .order-details td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+    .total {
+        text-align: right;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Order Details</h1>
+    <div class="order-details">
+        <h2>Order #12345</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pet Name</th>
+                    <th>Pet Colour</th>
+                    <th>Pet Price</th>
+                    <th>Pet Type</th>
+                    <th>User id</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            {% for xy in data %}
+                <tr>
+                    <td>{{ xy.pe.name }}</td>
+                    <td>{{ xy.pe.color }}</td>
+                    <td>{{ xy.pe.price }}</td>
+                    <td>{{ xy.pe.type }}</td>
+                    <td>{{ xy.user }}</td>
+                </tr>
+            {% endfor %}
+                <!-- Add more items here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

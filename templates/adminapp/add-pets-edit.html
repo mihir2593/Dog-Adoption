@@ -1,0 +1,87 @@
+{% extends 'adminapp/admin-master.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="pagetitle">
+      <h1>Add pets</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Pets details</li>
+          <li class="breadcrumb-item active"> Add pets</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">General Form Elements</h5>
+
+              <!-- General Form Elements -->
+              <form method="post" enctype="multipart/form-data" action="/admin/petsupdate/{{data.id}}/">
+                {% csrf_token %}
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Pets Name</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="name" value="{{data.name}}" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="inputnumber" class="col-sm-2 col-form-label">Price</label>
+                  <div class="col-sm-10">
+                    <input type="number" name="price" value="{{data.price}}" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Types</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="type" value= "{{data.type}}"  class="form-control">
+                  </div>
+                </div>
+
+
+                <div class="row mb-3">
+                  <label for="inputColor" class="col-sm-2 col-form-label">Color</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="color" value="{{data.color}}" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="inputgender" class="col-sm-2 col-form-label">Gender</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="gender"   value="{{data.gender}}" class="form-control">
+                  </div>
+                </div>
+
+                 <div class="row mb-3">
+                  <label for="inputimage" class="col-sm-2 col-form-label">Image</label>
+                  <div class="col-sm-10">
+                    <input type="file" name="image"   value="{{data.image}}" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Update Form</label>
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Update </button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </section>
+{% endblock %}

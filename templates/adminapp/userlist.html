@@ -1,0 +1,47 @@
+{% extends 'adminapp/admin-master.html' %}
+{% load static %}
+{% block content %}
+<div class="pagetitle">
+    <h1>User list table</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item">list</li>
+            <li class="breadcrumb-item active">Userlist</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Default Table</h5>
+
+                    <!-- Default Table -->
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for ab in data %}
+                        <tr>
+                            <td>{{ ab.username }}</td>
+                            <td>{{ ab.email }}</td>
+
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
